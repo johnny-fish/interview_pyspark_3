@@ -1,0 +1,34 @@
+x-small:
+  total_executor_cores: 1
+  executor_cores: 1
+  executor_memory: '1G'
+  num_executors: 1
+  driver_memory: '1G'
+
+small:
+  total_executor_cores: 2
+  executor_cores: 2
+  executor_memory: '2G'
+  num_executors: 1
+  driver_memory: '2G'
+
+medium:
+  total_executor_cores: 4
+  executor_cores: 2
+  executor_memory: '2G'
+  num_executors: 2
+  driver_memory: '3G'
+
+large:
+  total_executor_cores: 8
+  executor_cores: 4
+  executor_memory: '4G'
+  num_executors: 2
+  driver_memory: '4G'
+
+x-large:
+  total_executor_cores: 16
+  executor_cores: 4
+  executor_memory: '4G'
+  num_executors: 4
+  driver_memory: '6G'

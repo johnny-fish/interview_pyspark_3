@@ -1,0 +1,39 @@
+FROM apache/airflow:2.10.1
+
+USER root
+
+ENV DEBIAN_FRONTEND=noninteractive \
+    TERM=linux \
+    AIRFLOW_UID=50000 \
+    AIRFLOW_GPL_UNIDECODE=yes
+
+# Install jdk
+RUN apt-get -y update \
+    && apt-get -y install python3-pip libpq-dev postgresql-client python3-dev python3-distutils python3-apt \
+    && apt-get -y install openjdk-17-jdk
+
+# Install Spark
+ARG SPARK_HOME=/opt/spark
+RUN mkdir -p ${SPARK_HOME}
+
+RUN curl https://dlcdn.apache.org/spark/spark-3.5.2/spark-3.5.2-bin-hadoop3.tgz -o spark-3.5.2-bin-hadoop3.tgz \
+    && tar -xvzf spark-3.5.2-bin-hadoop3.tgz --directory ${SPARK_HOME} --strip-components 1\
+    && rm -rf spark-3.5.2-bin-hadoop3.tgz
+
+# Download Spark jars dependencies
+ARG AWS_JAVA_SDK_VERSION=1.12.262
+ARG HADOOP_AWS_VERSION=3.3.4
+ARG POSTGRESSQL=42.7.4
+RUN curl https://repo1.maven.org/maven2/com/amazonaws/aws-java-sdk-bundle/${AWS_JAVA_SDK_VERSION}/aws-java-sdk-bundle-${AWS_JAVA_SDK_VERSION}.jar --output  ${SPARK_HOME}/jars/aws-java-sdk-bundle-${AWS_JAVA_SDK_VERSION}.jar \
+    && curl https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-aws/${HADOOP_AWS_VERSION}/hadoop-aws-${HADOOP_AWS_VERSION}.jar --output  ${SPARK_HOME}/jars/hadoop-aws-${HADOOP_AWS_VERSION}.jar \
+    && curl https://jdbc.postgresql.org/download/postgresql-${POSTGRESSQL}.jar --output  ${SPARK_HOME}/jars/postgresql-${POSTGRESSQL}.jar
+
+USER airflow    
+ENV SPARK_HOME=${SPARK_HOME}
+# Install poetry for python dep management
+RUN pip install --no-cache-dir poetry==1.8.3
+# Install python dep (only main dep)
+COPY poetry.lock pyproject.toml ./
+RUN poetry config virtualenvs.create false \
+    && poetry install --no-interaction --only main\
+    && rm -rf /airflow/.cache/pypoetry

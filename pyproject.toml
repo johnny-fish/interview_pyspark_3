@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "Algolia-Assignment"
+version = "1.0.0"
+license = "MIT"
+description = "Algolia assignment project"
+authors = ["Yangfan XIANG <yangfan.xiang@hotmail.com>"]
+readme = "README.md"
+packages = [{include = "etl"}]
+
+[tool.poetry.dependencies]
+python = ">=3.12,<3.13"
+numpy = "1.26.4"
+pyspark = "^3.5.2"
+poetry = "^1.8.3"
+apache-airflow-providers-apache-spark = "^4.10.0"
+pandas = "^2.2.3"
+pyarrow = "^17.0.0"
+
+[tool.poetry.group.dev.dependencies]
+apache-airflow = "^2.10.1"
+pep8 = "^1.7.1"
+pytest = "^8.3.3"
+black = "^24.8.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

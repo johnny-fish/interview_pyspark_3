@@ -1,0 +1,13 @@
+FROM bitnami/spark:3.5
+
+USER root
+
+# Download Spark jars dependencies
+ARG AWS_JAVA_SDK_VERSION=1.12.262
+ARG HADOOP_AWS_VERSION=3.3.4
+ARG POSTGRESSQL=42.7.4
+
+RUN install_packages curl
+RUN curl https://repo1.maven.org/maven2/com/amazonaws/aws-java-sdk-bundle/${AWS_JAVA_SDK_VERSION}/aws-java-sdk-bundle-${AWS_JAVA_SDK_VERSION}.jar --output /opt/bitnami/spark/jars/aws-java-sdk-bundle-${AWS_JAVA_SDK_VERSION}.jar
+RUN curl https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-aws/${HADOOP_AWS_VERSION}/hadoop-aws-${HADOOP_AWS_VERSION}.jar --output /opt/bitnami/spark/jars/hadoop-aws-${HADOOP_AWS_VERSION}.jar
+RUN curl https://jdbc.postgresql.org/download/postgresql-${POSTGRESSQL}.jar --output /opt/bitnami/spark/jars/postgresql-${POSTGRESSQL}.jar
