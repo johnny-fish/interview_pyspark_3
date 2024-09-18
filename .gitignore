@@ -1,0 +1,16 @@
+# Mac
+.DS_Store
+
+# Python
+__pycache__/
+dist
+
+# Airflow
+logs/
+reports/
+
+# VSCode
+.vscode
+
+# Pytest
+.pytest_cache
