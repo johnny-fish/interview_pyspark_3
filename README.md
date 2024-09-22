@@ -47,10 +47,11 @@ Let's discuss this part to fill the content. Note that can also be Ansible playb
 ### Prerequisites
 
 1. `make build` to build airflow and spark image
-2. `make up` to create airflow and spark container
-3. `make package-project` to create the zip that contain `etl` code to be use when we call `spark-submit`
-4. trigger `ingestion_shopify_configuration` dags with the date
-5. `make down` if you want to shutdown all
+2. `make init` to init airflow
+3. `make up` to create airflow and spark container
+4. `make package-project` to create the zip that contain `etl` code to be use when we call `spark-submit`
+5. trigger `ingestion_shopify_configuration` dags with the date
+6. `make down` if you want to shutdown all
 
 ### Setup in Airflow UI
 - import `config/airflow_variable.json` to Airflow Variable
