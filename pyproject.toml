@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "Algolia-Assignment"
-version = "1.0.1"
+version = "1.0.2"
 license = "MIT"
 description = "Algolia assignment project"
 authors = ["Yangfan XIANG <yangfan.xiang@hotmail.com>"]
