@@ -70,7 +70,6 @@ But is also possible to trigger it manualy with the date in param.
 and with extra spark cluster setting.
 5. `make down-spark` if you want to shutdown all
 
-
 ## Development flow
 ### Gitflow
 - https://nvie.com/posts/a-successful-git-branching-model/
