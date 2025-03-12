@@ -76,10 +76,10 @@ x-airflow-common:
     # The following line can be used to set a custom config file, stored in the local config folder
     # If you want to use it, outcomment it and replace airflow.cfg with the name of your config file
     # AIRFLOW_CONFIG: '/opt/airflow/config/airflow.cfg'
-    ALGOLIA_WAREHOUSE_HOST: warehouse
-    ALGOLIA_WAREHOUSE_PORT: 5432
-    ALGOLIA_WAREHOUSE_USER: algolia_user
-    ALGOLIA_WAREHOUSE_PASSWORD: algolia_pwd
+    XXX_WAREHOUSE_HOST: warehouse
+    XXX_WAREHOUSE_PORT: 5432
+    XXX_WAREHOUSE_USER: xxx_user
+    XXX_WAREHOUSE_PASSWORD: xxx_pwd
   volumes:
     - ${AIRFLOW_PROJ_DIR:-.}/etl:/opt/airflow/etl
     - ${AIRFLOW_PROJ_DIR:-.}/dist:/opt/airflow/dist
@@ -313,15 +313,15 @@ services:
     image: postgres:13
     restart: always
     environment:
-      - POSTGRES_USER=algolia_user
-      - POSTGRES_PASSWORD=algolia_pwd
-      - POSTGRES_DB=algolia_wh
+      - POSTGRES_USER=xxx_user
+      - POSTGRES_PASSWORD=xxx_pwd
+      - POSTGRES_DB=xxx_wh
     logging:
       options:
         max-size: 10m
         max-file: "3"
     healthcheck:
-      test: ["CMD", "pg_isready", "-U", "algolia_user", "-d", "algolia_wh"]
+      test: ["CMD", "pg_isready", "-U", "xxx_user", "-d", "xxx_wh"]
       interval: 5s
       retries: 5
     ports:

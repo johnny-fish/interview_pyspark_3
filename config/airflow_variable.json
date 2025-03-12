@@ -1,10 +1,10 @@
 {
     "AWS_ACCESS_KEY_ID": "XXX",
     "AWS_SECRET_ACCESS_KEY": "XXXX",
-    "PSQL_DB": "algolia_wh",
+    "PSQL_DB": "xxx_wh",
     "PSQL_IP": "172.21.1.1",
-    "PSQL_SECRET": "algolia_pwd",
+    "PSQL_SECRET": "xxx_pwd",
     "PSQL_TABLE": "shopify_configuration",
-    "PSQL_USER": "algolia_user",
-    "S3_BUCKET": "alg-data-public"
+    "PSQL_USER": "xxx_user",
+    "S3_BUCKET": "xxx-data-public"
 }

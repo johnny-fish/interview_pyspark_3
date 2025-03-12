@@ -46,13 +46,13 @@ setup-local-dev:
 .PHONY: package-project
 package-project:
 	rm -rf dist \
-	&& mkdir -p dist/algolia \
-	&& cp -r etl dist/algolia \
-	&& cd dist/algolia \
+	&& mkdir -p dist/xxx \
+	&& cp -r etl dist/xxx \
+	&& cd dist/xxx \
 	&& touch __init__.py \
-	&& zip -r ../algolia.zip . \
+	&& zip -r ../xxx.zip . \
 	&& cd ../.. \
-	&& rm -r dist/algolia
+	&& rm -r dist/xxx
 
 # TODO add target to run job with docker
 # Like docker exec -it agoliaassignment-spark-1 spark-submit --master spark://172.21.1.2:7077 etl/process_shopify_configuration.py

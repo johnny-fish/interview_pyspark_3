@@ -1,4 +1,4 @@
-# Algolia Assignment
+# XXX Assignment
 
 ---
 
@@ -8,7 +8,7 @@
 
 - install pyenv: `curl https://pyenv.run | bash`
 - install python: `pyenv install  3.12.5` 
-- create virtual env with pyenv: `pyenv virtualenv 3.12.5 algolia-venv`
+- create virtual env with pyenv: `pyenv virtualenv 3.12.5 xxx-venv`
 
 ---
 
@@ -16,7 +16,7 @@
 
 - install poetry: `pip install poetry`
 - deactive auto creation of virtual env: `poetry config virtualenvs.create false` use `--local` if you wish. \
-This step is optionnal if we are already in algolia-venv since we are already in venv.
+This step is optionnal if we are already in xxx-venv since we are already in venv.
 - intall all depencency `poetry install`
 
 ### Docker

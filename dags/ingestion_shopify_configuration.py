@@ -39,7 +39,7 @@ with DAG("ingestion_shopify_configuration",
     submit_job = SparkSubmitOperator(
          task_id='spark_job_ingestion_shopify_configuration',
          application='/opt/airflow/etl/process_shopify_configuration.py',
-         py_files='/opt/airflow/dist/algolia.zip',
+         py_files='/opt/airflow/dist/xxx.zip',
          application_args=["--s3_bucket", Variable.get("S3_BUCKET"),
                            "--logical_date", "{{ params.logical_date if params.logical_date else ds }}",
                            "--filename", "{{ params.logical_date if params.logical_date else ds }}.csv",

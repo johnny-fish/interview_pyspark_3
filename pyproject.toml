@@ -1,8 +1,8 @@
 [tool.poetry]
-name = "Algolia-Assignment"
+name = "XXX-Assignment"
 version = "1.0.2"
 license = "MIT"
-description = "Algolia assignment project"
+description = "XXX assignment project"
 authors = ["Yangfan XIANG <yangfan.xiang@hotmail.com>"]
 readme = "README.md"
 packages = [{include = "etl"}]
